@@ -1,0 +1,93 @@
+.module-detail-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #adc3dc; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.module-detail-container {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 1200px;
+  width: 100%;
+  max-height: calc(100vh - 40px);
+  text-align: center;
+  box-sizing: border-box; 
+  text-align: center;
+  overflow: auto;
+}
+
+.module-detail-title {
+  font-size: 2.5em;
+  color: #2a3f54; 
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.module-detail-title span {
+  color: #ffb822; 
+  margin-left: 10px;
+}
+
+.module-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%; 
+  box-sizing: border-box;
+}
+
+.module-detail-card {
+  background-color: #2a3f54; 
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.module-detail-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.module-icon {
+  font-size: 2em;
+  color: #ffb822; 
+  margin-bottom: 10px;
+}
+
+.module-detail-card span {
+  font-size: 1.2em;
+  color: white; 
+  font-family: 'Poppins', sans-serif;
+}
+
+.module-detail-container::-webkit-scrollbar {
+  display: none; 
+}
+
+.form-link {
+  text-decoration: none; 
+  color: inherit; 
+}
+
+.form-link:hover {
+  text-decoration: none; 
+  color: inherit; 
+}
+
+  

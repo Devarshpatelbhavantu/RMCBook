@@ -1,0 +1,82 @@
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.module {
+    position: relative;
+    z-index: 3;
+    display: block;
+    margin-top: 10px;
+    background: #adc3dc;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    border-radius: 12px; 
+    color: #333; 
+    text-decoration: none;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease, border-color 0.4s ease;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 1s forwards;
+  }
+  
+  .module:nth-child(even) {
+    animation-delay: 0.2s;
+  }
+
+  .module:nth-child(odd) {
+    animation-delay: 0.4s;
+  }
+
+  .module-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    position: relative;
+  }
+  
+  .thumbnail-title {
+    margin: 0;
+    font-family: "Staatliches", sans-serif; 
+    font-size: 22px;
+    font-weight: 600;
+    color: #24283d;
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+    position: relative; 
+    transition: color 0.4s ease, transform 0.4s ease;
+  }
+  
+  .thumbnail-title::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+  
+    transition: width 0.4s ease;
+  }
+  
+  .module:hover .thumbnail-title {
+    transform: translateY(-3px);
+  }
+  
+  .module:hover .thumbnail-title::after {
+    width: 100%;
+  }
+  
+  .module-description {
+    font-size: 16px; 
+    color: #24283d; 
+    margin-top: 10px;
+    line-height: 1.6;
+    transition: color 0.4s ease;
+  }

@@ -1,0 +1,403 @@
+/* 
+
+body {
+    background-color: #adc3dc; 
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .form-detail-page {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .form-title {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ffb822; 
+    padding-bottom: 10px;
+  }
+  
+  .form-description-content {
+    line-height: 1.6;
+    font-size: 1.1em;
+    color: #555; 
+  }
+  
+  .form-description-content h2 {
+    color: #ffb822; 
+    margin-top: 20px;
+    font-size: 1.5em;
+  }
+  
+  .form-description-content h3 {
+    color: #333;
+    margin-top: 15px;
+    font-size: 1.2em;
+  }
+
+  .form-description-content ol,
+  .form-description-content ul {
+    margin-left: 20px;
+    padding-left: 20px;
+  }
+  
+  .form-description-content li {
+    margin-bottom: 10px;
+  }
+ 
+  .form-description-content a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .form-description-content a:hover {
+    text-decoration: underline;
+  }
+
+  .no-description {
+    font-size: 1.2em;
+    color: #d9534f;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .form-detail-page {
+      padding: 15px;
+    }
+  
+    .form-title {
+      font-size: 1.8em;
+    }
+  
+    .form-description-content {
+      font-size: 1em;
+    }
+  }
+   */
+
+.form-detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #adc3dc;
+  position: relative;
+}
+
+.book-wrapper {
+  position: absolute; 
+  top: 47%;
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  width: 1150px;
+  height: 600px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: bookEnter 1s ease-out forwards;
+}
+
+@keyframes bookEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translate(-50%, -50%);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+.flipbook {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease-in-out;
+} 
+
+.page {
+  width: 48%;
+  background-color: #fdfdfd;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  margin-right: 1%;
+  backface-visibility: hidden;
+  background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+  background-size: cover;
+  margin: 0;
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.15) 100%);
+  opacity: 0.1; 
+  pointer-events: none;
+}
+
+.cover-page{
+  background-color: #24283d;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  overflow: hidden;
+  border: 2px solid #1c2833; /* Darker border for a hardcover look */
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* More prominent shadow for elevation */
+}
+
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/asfalt-light.png'); /* Light texture for a hardcover look */
+  opacity: 0.2;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.cover-content {
+  text-align: center;
+  padding: 20px;
+}
+
+.cover-page h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  font-family: 'Georgia', serif;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.cover-page h3 {
+  font-size: 20px;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.end-page{
+  background-color: #24283d;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+}
+
+.end-page h1 {
+  font-size: 2.5em;
+  color: white;
+}
+
+.instruction-text {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  font-family: 'Arial', sans-serif;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  pointer-events: all;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.instruction-text .icon {
+  font-size: 2rem;
+  color: #ffeb3b; 
+  animation: bounce 1.5s infinite; 
+  margin-left: 80px;
+}
+
+.instruction-text .text {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.page-header h2 {
+  font-size: 26px;
+  color: #24283d;
+  font-family: 'Georgia', serif;
+  /* letter-spacing: 0.5px; */
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+.page-content {
+  font-size: 18px;
+  line-height: 1.6;
+  font-family: 'Garamond', serif;
+  color: #24283d;
+  padding: 10px;
+  background-color: #f9f9f9; 
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); 
+  overflow-y: auto;
+  max-height: 500px; 
+  margin: 20px;
+  padding-bottom: 30px;
+}
+
+.page-content p {
+  margin-bottom: 15px; 
+  text-indent: 1em; 
+  text-align: justify;
+}
+
+.page-content ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.page-content ul li {
+  margin-bottom: 10px;
+}
+
+.page-content ol {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.page-content ol li {
+  margin-bottom: 10px;
+}
+
+.page-content h3 {
+  font-size: 24px;
+  color: #24283d;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-family: 'Georgia', serif;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.page-content h2 {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.carousel-button {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 10;
+}
+
+.book-wrapper.open .carousel-button{
+  display: block;
+}
+
+.carousel-button.left {
+  left: -80px;
+}
+
+.carousel-button.right {
+  right: -80px;
+}
+
+
+.no-description-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #adc3dc; 
+  padding: 20px;
+}
+
+.no-description-card {
+  background: #ffffff; 
+  border: 3px dashed #ff6f61;
+  padding: 50px 60px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  animation: bounce 1.2s ease-in-out; 
+  max-width: 600px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.oops-icon {
+  width: 80px; 
+  margin-bottom: 20px;
+}
+
+.no-description-title {
+  font-size: 28px;
+  color: #ff6f61; 
+  margin: 0;
+  font-family: 'Patrick Hand', Arial, sans-serif;
+}
+
+.no-description-message {
+  font-size: 20px;
+  color: #333;
+  margin-top: 15px;
+  line-height: 1.5;
+}
+
