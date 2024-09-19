@@ -16,7 +16,7 @@ const Footer = () => {
       <a href="https://www.instagram.com/bhavantu_657/" aria-current="page" className="footer-nav-link">
         <i className="fa-brands fa-instagram"></i>
       </a>
-      <a href="/subscribe" className="footer-nav-link">
+      <a href="/" className="footer-nav-link">
         <div className="subscribe">Subscribe</div>
       </a>
     </div>

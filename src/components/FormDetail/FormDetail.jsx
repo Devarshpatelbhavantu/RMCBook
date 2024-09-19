@@ -1,18 +1,22 @@
 import React, { useState, useRef , useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate  } from 'react-router-dom';
 import HTMLFlipBook from 'react-pageflip';
 import formDescriptions from '../FormDescriptions/FormDescriptions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faArrowLeft, faArrowRight,faArrowCircleLeft  } from '@fortawesome/free-solid-svg-icons';
 import { formatInstructions, formatSteps} from '../Utility/FormatUtility';
 import './FormDetail.css';
+import sad from "./sad.png";
 
 const FormDetail = () => {
   const { moduleName, formName } = useParams();
   const formDetails = formDescriptions[moduleName]?.[formName];
   const [isOpen, setIsOpen] = useState(false);
   const flipBookRef = useRef(null);
-  
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   useEffect(() => {
     setIsOpen(false);
@@ -21,8 +25,11 @@ const FormDetail = () => {
   if (!formDetails) {
     return (
       <div className="no-description-container">
+        <button className="back-button" onClick={handleGoBack}>
+        <FontAwesomeIcon icon={faArrowCircleLeft} />Back
+       </button>
         <div className="no-description-card">
-          <img src="/src/assets/sad.png" alt="Oops!" className="oops-icon" />
+          <img src={sad} alt="Oops!" className="oops-icon" />
           <h2 className="no-description-title">Oops!</h2>
           <p className="no-description-message">Description not found for {formName}.</p>
         </div>
@@ -61,9 +68,12 @@ const FormDetail = () => {
     setIsOpen(false);
   };
 
-
   return (
     <div className="form-detail-container">
+
+      <button className="back-button" onClick={handleGoBack}>
+        <FontAwesomeIcon icon={faArrowCircleLeft} />Back
+      </button>
 
       <div className={`book-wrapper ${isOpen ? 'open' : ''}`}  onClick={handleBookClick} >
         

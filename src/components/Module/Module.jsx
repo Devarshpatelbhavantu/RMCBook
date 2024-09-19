@@ -5,7 +5,7 @@ import './Module.css';
 
 const Module = ({ searchQuery }) => {
   
-  const minSearchLength = 5; 
+  const minSearchLength = 4; 
 
   const filteredModules = Object.keys(moduleData).filter(moduleName => {
     const forms = moduleData[moduleName].forms || [];

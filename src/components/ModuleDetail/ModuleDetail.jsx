@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useParams,Link} from 'react-router-dom';
-import { FaClipboardList } from 'react-icons/fa';
+import { useParams,Link,useNavigate} from 'react-router-dom';
+import { FaClipboardList, FaArrowLeft } from 'react-icons/fa';
 import { useSpring, animated, config} from '@react-spring/web';
 import { moduleData } from '../ModuleData/ModuleData'; 
 import './ModuleDetail.css';
@@ -8,7 +8,7 @@ import './ModuleDetail.css';
 const ModuleDetail = () => {
   const { moduleName } = useParams();
   const dataList = moduleData[moduleName]?.forms || []; 
-  
+  const navigate = useNavigate();
   const [showItems, setShowItems] = useState(false);
 
   const containerSpring = useSpring({
@@ -36,6 +36,10 @@ const ModuleDetail = () => {
   return (
     <div className='module-detail-page'>
       <animated.div className="module-detail-container" style={containerSpring}>
+        
+       <button className="backhome-button" onClick={() => navigate('/')}>
+          <FaArrowLeft className="backhome-icon" /> Home        </button>
+
         <h1 className="module-detail-title">
           {moduleName} <span>Details</span>
         </h1>

@@ -8,6 +8,7 @@ import './Home.css';
 import '../Module/Module.css';
 import '../ContactUs/ContactUs.css';
 import '../AboutUs/AboutUs.css';
+import bhavantu from "./bhavantu.png"
 
 const HomePage = () => {
   const [showSearch, setShowSearch] = useState(false);
@@ -36,7 +37,7 @@ const HomePage = () => {
     <div className="home-container">
       <div className="left-section">
         <div className="featured-content">
-          <img src="/src/assets/bhavantu.png" alt="Bhavantu Software Logo" className="company-logo" />
+          <img src={bhavantu} alt="Bhavantu Software Logo" className="company-logo" />
           <button className="cta-button">SUBSCRIBE</button>
         </div>
         <Footer />
