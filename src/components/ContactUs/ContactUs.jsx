@@ -1,5 +1,6 @@
 import React, { useState, useEffect  } from 'react';
 import './ContactUs.css';
+import emailjs from 'emailjs-com';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +25,23 @@ const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    emailjs.send(
+      'service_ys3albn',
+      'template_8xbo94b',
+      {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        mobile: formData.mobile,
+        message: formData.message
+      },
+      'veDWQe-ScQ8q-8Ajj'
+    ).then((result) => {
+      console.log('Email sent successfully:', result.text);
+    }).catch((error) => {
+      console.error('Failed to send email:', error.text);
+    });
+
     setFormData({
       name: '',
       email: '',

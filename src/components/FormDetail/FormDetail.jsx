@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faArrowLeft, faArrowRight,faArrowCircleLeft  } from '@fortawesome/free-solid-svg-icons';
 import { formatInstructions, formatSteps} from '../Utility/FormatUtility';
 import './FormDetail.css';
-import sad from "./sad.png";
+import sad from "../../assets/sad.png";
 
 const FormDetail = () => {
   const { moduleName, formName } = useParams();

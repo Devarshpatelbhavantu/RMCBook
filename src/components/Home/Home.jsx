@@ -8,7 +8,7 @@ import './Home.css';
 import '../Module/Module.css';
 import '../ContactUs/ContactUs.css';
 import '../AboutUs/AboutUs.css';
-import bhavantu from "./bhavantu.png"
+import bhavantu from "../../assets/bhavantu.png"
 
 const HomePage = () => {
   const [showSearch, setShowSearch] = useState(false);

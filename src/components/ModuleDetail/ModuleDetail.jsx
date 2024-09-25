@@ -37,8 +37,9 @@ const ModuleDetail = () => {
     <div className='module-detail-page'>
       <animated.div className="module-detail-container" style={containerSpring}>
         
-       <button className="backhome-button" onClick={() => navigate('/')}>
-          <FaArrowLeft className="backhome-icon" /> Home        </button>
+        <button className="backhome-button" onClick={() => navigate('/')}>
+            <FaArrowLeft className="backhome-icon" /> Home        
+        </button>
 
         <h1 className="module-detail-title">
           {moduleName} <span>Details</span>
